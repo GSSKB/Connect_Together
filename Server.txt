@@ -1,0 +1,107 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Connect_Together
+{
+    public  class Server
+    {
+        
+       
+        public char s;
+
+
+        #region Server_Methods
+        public void Register()
+        {
+            Console.WriteLine("Type 'r' to Register");
+            Console.WriteLine("Type 'u' to Unregister");
+            char ch = char.Parse(Console.ReadLine());
+            string r = ch.ToString().ToLower();
+            switch (r)
+            {
+                case "r":
+                    Console.WriteLine("Enter your Name and Phone number");
+                    Fill_details();
+                    break;
+                case "u": Unregister();
+                    break;
+
+
+
+
+            }
+            
+
+        }
+        public void Fill_details()
+        {
+            Client c1 = new Client();
+            c1.registration();
+            Console.WriteLine("Registration Successful");
+            Console.WriteLine("Happy to connect you");
+            Console.Read();
+
+        }
+        public void Unregister()
+        {
+
+        }
+        
+        
+
+    }
+    #endregion 
+    public class users_list
+    {
+        Dictionary<string, long> cl = new Dictionary<string, long>();
+        public void list()
+        {
+             
+
+        }
+    }
+    public class ChatOperation
+    {
+
+        #region Messaging Methods
+
+        public void MessageReceived()
+        {
+            Client ms = new Client();
+            ms.SendMessage();
+        }
+        public void messageoptions()
+        {
+            Options o = new Options();
+            Console.WriteLine("Enter 1 to mute chat");
+            Console.WriteLine("Enter 2 to view");
+            Console.WriteLine("Enter 3 to block");
+            Console.WriteLine("Enter 4 to deleteChat");
+            
+            int kb= int.Parse(Console.ReadLine());
+            switch (kb)
+            {
+                case 1:
+                    o.Mute();
+                    break;
+                case 2:
+                    o.view();
+                    break;
+                case 3:
+                    o.block();
+                    break;
+                case 4:
+                    o.deleteChat();
+                    break;
+            }
+           
+
+        }
+
+    }
+
+    #endregion
+}
